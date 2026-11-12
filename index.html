@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="DNnpBUPvnISWL9wcCKr2Zn" style="margin: 0px; padding: 0px; box-sizing: border-box; scroll-behavior: smooth; -webkit-font-smoothing: antialiased;"><head data-page-node-id="jiDgtPR10BK42NmRqwezrM" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+<meta charset="UTF-8" data-page-node-id="SIaoOa7HiVGBPS81EXxVDJ" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="ZQb80dAM8IvjvLfWShsLEw" style="margin: 0px; padding: 0px; box-sizing: border-box;"><title data-page-node-id="LkaXm8PluBy7uODMS9tDGp" data-pnid-children="PNHTHc1Jcm2E51DI3bUk1N" style="margin:0;padding:0;box-sizing:border-box">守护珊瑚 · 不用远方</title>
+<title>守护珊瑚 · 不用远方</title>
+<style>
+  :root {
+    --blue: #1B5CF0;
+    --blue-deep: #0B3AAE;
+    --tint: #EDF2FF;
+    --line: #D5E0F8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    background: #fff;
+    color: var(--blue);
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+    font-size: 17px;
+  }
+  ::selection { background: var(--blue); color: #fff; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  /* ================= HERO ================= */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-inner { position: relative; z-index: 3; width: 100%; }
+  .kicker {
+    display: flex; align-items: center; gap: 12px;
+    font-size: .78rem; letter-spacing: .28em; text-transform: uppercase;
+    margin-bottom: 42px;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 8.4vw, 6.4rem);
+    line-height: 1.06;
+    font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .hero h1 span { display: block; }
+  .hero h1 .thin { font-weight: 200; }
+
+  /* ================= 通用 ================= */
+  section { padding: 116px 0; }
+  .rule { height: 1px; background: var(--line); }
+  .label {
+    display: flex; align-items: center; gap: 12px;
+    font-size: .74rem; letter-spacing: .24em;
+    margin-bottom: 26px;
+  }
+  .h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    font-weight: 700; letter-spacing: -.01em; line-height: 1.35;
+  }
+  .sub { margin-top: 16px; opacity: .7; max-width: 34em; }
+
+  .hero .say {
+    margin-top: 44px;
+    max-width: 36em;
+    font-size: 1.02rem;
+    line-height: 1.95;
+    opacity: .72;
+  }
+  .hero .poem {
+    margin-top: 76px;
+    font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+    font-weight: 300;
+    line-height: 2.1;
+    letter-spacing: .18em;
+    opacity: .72;
+  }
+  .hero .poem em { font-style: normal; font-weight: 700; opacity: .95; }
+  .hero .attr {
+    display: block;
+    margin-top: 18px;
+    font-size: .72rem; letter-spacing: .22em; opacity: .38;
+  }
+
+  /* ================= 打卡 ================= */
+  .items { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .item {
+    border-bottom: 1px solid var(--line);
+    padding: 30px 28px 30px 0;
+    cursor: pointer;
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    transition: background .2s;
+  }
+  .item:nth-child(odd) { border-right: 1px solid var(--line); }
+  .item:nth-child(even) { padding-left: 28px; }
+  .item:hover { background: #FAFBFF; }
+  .item .num {
+    font-size: .72rem; letter-spacing: .18em; opacity: .45;
+    padding-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .item .body { flex: 1; }
+  .item h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 6px; }
+  .item p { font-size: .95rem; opacity: .68; line-height: 1.7; }
+  .item .box {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border: 1.5px solid var(--blue);
+    margin-top: 6px;
+    position: relative;
+    transition: background .2s;
+  }
+  .item .box::after {
+    content: "";
+    position: absolute;
+    left: 6px; top: 2px;
+    width: 5px; height: 10px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) scale(0);
+    transition: transform .2s;
+  }
+  .item.done { background: var(--tint); }
+  .item.done .box { background: var(--blue); }
+  .item.done .box::after { transform: rotate(45deg) scale(1); }
+
+  .progress {
+    margin-top: 46px;
+    display: flex; align-items: center; gap: 26px;
+    flex-wrap: wrap;
+  }
+  .progress .txt { font-size: .88rem; letter-spacing: .06em; opacity: .7; }
+  .progress .txt b { font-size: 1.7rem; font-weight: 700; opacity: 1; margin: 0 4px; }
+  .track { flex: 1; min-width: 160px; height: 1px; background: var(--line); position: relative; }
+  .track i { position: absolute; left: 0; top: -1px; height: 3px; background: var(--blue); width: 0; transition: width .5s ease; }
+
+  /* ================= 原因 ================= */
+  .reasons { border-top: 1px solid var(--line); margin-top: 52px; }
+  .reason {
+    display: grid;
+    grid-template-columns: 34% 1fr;
+    gap: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .reason h3 { font-size: 1.02rem; font-weight: 600; }
+  .reason .tag {
+    display: inline-block;
+    font-size: .68rem;
+    letter-spacing: .14em;
+    border: 1px solid var(--blue);
+    padding: 2px 9px;
+    margin-top: 10px;
+    white-space: nowrap;
+  }
+  .reason .tag.solid { background: var(--blue); color: #fff; }
+  .reason .tag.dash { border-style: dashed; }
+  .reason p { font-size: 1rem; opacity: .78; }
+
+  .note {
+    margin-top: 40px;
+    border: 1px solid var(--blue);
+    padding: 26px 28px;
+    font-size: .97rem;
+    display: block;
+  }
+  .note b { font-weight: 700; }
+
+  .ev { margin-top: 90px; }
+  .ev-list { border-top: 1px solid var(--line); margin-top: 36px; }
+  .ev-item {
+    display: block;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ev-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .ev-item h4 span { font-weight: 400; font-size: .72rem; letter-spacing: .12em; opacity: .5; margin-left: 10px; }
+  .ev-item p { font-size: .96rem; opacity: .74; }
+  .ev-item .src { margin-top: 10px; font-size: .8rem; opacity: .48; }
+
+  /* ================= 案例：白色综合征 ================= */
+  .case { margin-top: 84px; border-top: 1px solid var(--line); padding-top: 46px; }
+  .case .eyebrow { font-size: .72rem; letter-spacing: .2em; opacity: .5; }
+  .case h3 { font-size: clamp(1.3rem, 2.6vw, 1.62rem); font-weight: 700; margin-top: 14px; line-height: 1.4; }
+  .case .lead { margin-top: 14px; font-size: 1rem; opacity: .78; max-width: 46em; }
+
+  .ratio { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 38px; }
+  .ratio > div { background: #fff; padding: 30px 28px 26px; }
+  .ratio > div:last-child { background: var(--tint); }
+  .ratio .who { font-size: .72rem; letter-spacing: .16em; opacity: .55; }
+  .ratio .num { margin-top: 18px; font-size: clamp(2.4rem, 5.4vw, 3.4rem); font-weight: 200; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .ratio > div:last-child .num { font-weight: 400; }
+  .ratio .cap { margin-top: 14px; font-size: .86rem; opacity: .6; }
+  .ratio-foot { margin-top: 14px; font-size: .82rem; opacity: .5; }
+
+  .case-list { margin-top: 36px; border-top: 1px solid var(--line); }
+  .case-list > div { display: grid; grid-template-columns: 44px 1fr; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .case-list .n { font-size: .78rem; letter-spacing: .1em; opacity: .45; padding-top: 5px; }
+  .case-list h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .case-list p { font-size: .96rem; opacity: .74; }
+
+  .caution { margin-top: 30px; border-left: 2px solid var(--blue); padding: 2px 0 2px 22px; font-size: .95rem; opacity: .78; max-width: 50em; }
+  .case .plain { margin-top: 34px; font-size: 1rem; opacity: .78; max-width: 48em; }
+
+
+  /* ================= 知识卡片 ================= */
+  .sub-label {
+    margin-top: 60px; padding-top: 26px; border-top: 1px solid var(--line);
+    font-size: .74rem; letter-spacing: .22em; opacity: .5;
+  }
+  .cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-top: 46px;
+  }
+  .sub-label + .cards { margin-top: 26px; }
+  .kcard {
+    position: relative; background: #fff; height: 324px;
+    perspective: 1500px; cursor: pointer; outline: none;
+  }
+  .kcard:focus-visible { box-shadow: inset 0 0 0 2px var(--blue); }
+  .kcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .62s cubic-bezier(.4,.1,.2,1);
+  }
+  .kcard.flip .kcard-inner { transform: rotateY(180deg); }
+  .kface {
+    position: absolute; inset: 0;
+    padding: 28px 26px 24px;
+    display: flex; flex-direction: column;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    overflow: hidden;
+  }
+  .knum { font-size: .72rem; letter-spacing: .16em; opacity: .45; font-variant-numeric: tabular-nums; }
+  .kcard h4 { font-size: 1.04rem; font-weight: 700; line-height: 1.5; margin-top: 18px; }
+  .kteaser { margin-top: 12px; font-size: .92rem; opacity: .62; line-height: 1.7; }
+  .khint { margin-top: auto; font-size: .7rem; letter-spacing: .18em; opacity: .38; }
+  .kback { transform: rotateY(180deg); background: var(--tint); }
+  .kback p { margin-top: 18px; font-size: .88rem; line-height: 1.8; opacity: .8; }
+  .ksrc { margin-top: auto; padding-top: 16px; font-size: .68rem; letter-spacing: .04em; opacity: .42; }
+
+  /* ================= 测验 ================= */
+  .quiz { display: grid; grid-template-columns: 210px 1fr; gap: 56px; margin-top: 56px; }
+  .quiz-side .count {
+    font-size: 3.2rem; font-weight: 200; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .quiz-side .count small { font-size: .95rem; opacity: .45; font-weight: 400; }
+  .quiz-dots { display: flex; gap: 8px; margin-top: 28px; flex-wrap: wrap; }
+  .quiz-dots i {
+    width: 24px; height: 3px; background: var(--line); display: block;
+    transition: background .25s;
+  }
+  .quiz-dots i.on { background: var(--blue); }
+  .quiz-main h3 { font-size: clamp(1.15rem, 2.2vw, 1.46rem); font-weight: 600; line-height: 1.55; margin-bottom: 30px; }
+  .opts { border-top: 1px solid var(--line); }
+  .opt {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+    align-items: start;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 21px 8px;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--blue);
+    cursor: pointer;
+    transition: background .18s, padding-left .18s;
+  }
+  .opt:hover { background: var(--tint); padding-left: 16px; }
+  .opt .key {
+    width: 26px; height: 26px;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .74rem;
+    margin-top: 1px;
+    transition: all .18s;
+  }
+  .opt:hover .key { background: var(--blue); color: #fff; }
+  .opt.right { background: var(--blue); color: #fff; }
+  .opt.right .key { background: #fff; color: var(--blue); border-color: #fff; }
+  .opt.wrong { background: var(--tint); }
+  .opt.wrong .key { background: var(--blue); color: #fff; }
+  .fb { margin-top: 26px; font-size: .97rem; line-height: 1.75; min-height: 58px; opacity: .82; }
+  .fb b { font-weight: 700; opacity: 1; }
+  .next {
+    margin-top: 6px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 14px 38px;
+    font: inherit;
+    font-size: .92rem;
+    letter-spacing: .14em;
+    cursor: pointer;
+    display: none;
+    transition: background .2s;
+  }
+  .next:hover { background: var(--blue-deep); }
+
+  /* ================= 留言 ================= */
+  .board-form { display: grid; grid-template-columns: 220px 1fr; gap: 60px; margin-top: 56px; }
+  .field { margin-bottom: 24px; }
+  .field label {
+    display: block; font-size: .7rem; letter-spacing: .2em;
+    opacity: .5; margin-bottom: 8px;
+  }
+  .field input, .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 0 12px;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--blue);
+    outline: none;
+    transition: border-color .2s;
+    resize: vertical;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(27,92,240,.3); }
+  .field input:focus, .field textarea:focus { border-color: var(--blue); }
+  .send {
+    background: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    padding: 13px 40px;
+    font: inherit;
+    font-size: .9rem;
+    letter-spacing: .16em;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .send:hover { background: var(--blue); color: #fff; }
+
+  .msgs { border-top: 1px solid var(--line); }
+  .msg {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 28px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    animation: fadeIn .45s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .msg .who { font-size: .9rem; font-weight: 600; }
+  .msg .when { font-size: .72rem; opacity: .42; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .msg .what { font-size: 1rem; opacity: .82; word-break: break-word; padding-right: 44px; }
+  .msg .del {
+    position: absolute; right: 0; top: 24px;
+    border: none; background: none; cursor: pointer;
+    font: inherit; font-size: .76rem; color: var(--blue);
+    opacity: .32; transition: opacity .2s;
+  }
+  .msg .del:hover { opacity: 1; }
+  .empty { padding: 34px 0; font-size: .94rem; opacity: .45; }
+
+  /* ================= 结语 ================= */
+  .finale { background: var(--blue); color: #fff; position: relative; overflow: hidden; }
+  .finale .inner { padding: 118px 0; position: relative; z-index: 2; }
+  .finale .f-label { font-size: .72rem; letter-spacing: .22em; opacity: .62; }
+  .finale .fh2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); font-weight: 700; margin-top: 18px; letter-spacing: .01em; }
+  .finale .fsub { margin-top: 16px; font-size: .98rem; opacity: .74; max-width: 44em; }
+
+  /* 蓝色底上的知识卡片 */
+  .finale .cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,.3);
+    border: 1px solid rgba(255,255,255,.3);
+    margin-top: 46px;
+  }
+  .finale .kcard { background: var(--blue); height: 330px; }
+  .finale .kback { background: #2f6bf2; }
+  .finale .kface { padding: 26px 24px 22px; }
+  .finale .knum { opacity: .55; }
+  .finale .kteaser { opacity: .66; }
+  .finale .khint { opacity: .5; }
+  .finale .kback p { font-size: .86rem; line-height: 1.75; opacity: .92; }
+  .finale .ksrc { opacity: .55; }
+  .finale .kcard:focus-visible { box-shadow: inset 0 0 0 2px #fff; }
+  .finale .kcard.wide { grid-column: 1 / -1; height: 188px; }
+
+  .finale .nums {
+    display: flex; gap: 84px; flex-wrap: wrap;
+    margin-top: 96px; padding-top: 66px; margin-bottom: 44px;
+    border-top: 1px solid rgba(255,255,255,.3);
+  }
+  .finale .n { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 200; line-height: 1; }
+  .finale .n span { font-size: .95rem; display: block; margin-top: 16px; opacity: .72; font-weight: 400; letter-spacing: .06em; }
+  .finale .closing {
+    max-width: 40em; font-size: 1.02rem; opacity: .86;
+    border-top: 1px solid rgba(255,255,255,.42);
+    padding-top: 34px;
+  }
+  .finale .quote { margin-top: 44px; font-size: .95rem; letter-spacing: .2em; opacity: .6; }
+
+  footer { padding: 46px 0 60px; }
+  footer .wrap {
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    flex-wrap: wrap;
+    font-size: .76rem; letter-spacing: .16em; opacity: .48;
+  }
+
+  /* ================= 响应式 ================= */
+  @media (max-width: 900px) {
+    .quiz, .board-form { grid-template-columns: 1fr; gap: 38px; }
+    .reason { grid-template-columns: 1fr; gap: 12px; }
+    .cards { grid-template-columns: 1fr; }
+    .kcard { height: 290px; }
+    .finale .kcard { height: 300px; }
+    .finale .kcard.wide { height: 230px; }
+    .ratio { grid-template-columns: 1fr; }
+    .ratio > div { padding: 24px 22px 22px; }
+    .case-list > div { grid-template-columns: 34px 1fr; gap: 14px; }
+      section { padding: 84px 0; }
+    .item { padding: 26px 20px 26px 0; }
+    .item:nth-child(even) { padding-left: 20px; }
+    .msg { grid-template-columns: 1fr; gap: 8px; }
+    .finale .nums { gap: 44px; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 22px; }
+    .items { grid-template-columns: 1fr; }
+    .item:nth-child(odd) { border-right: none; }
+    .item:nth-child(even) { padding-left: 0; }
+      }
+</style>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="F6aDZsPt1CN5PF1ivcDc4t" style="margin: 0px; padding: 0px; box-sizing: border-box; background: rgb(255, 255, 255); color: rgb(27, 92, 240); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, Arial, sans-serif; line-height: 1.8; overflow-x: hidden; font-size: 16px;">
+
+<!-- ================= HERO ================= -->
+<header class="hero" data-page-node-id="vI5c2XxfGiFGsYeYSCDYzG" style="margin: 0px; padding: 0px; box-sizing: border-box; position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden;">
+  <div class="wrap hero-inner" data-page-node-id="bGlBNkKcKsNCDBgb4yCCPa" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px; position: relative; z-index: 3; width: 100%;">
+    <div class="kicker" data-page-node-id="N9YuXjbIZswtAsFgg1gGau" style="white-space: pre-wrap; margin: 0px 0px 42px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;"> 珊瑚守护计划​</div>
+    <h1 data-page-node-id="1QrXGrtAKDde8wenuQUOFr" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(2.8rem, 8.4vw, 6.4rem); line-height: 1.06; font-weight: 700; letter-spacing: -0.02em;">
+      <span data-page-node-id="MmFASAaoxQDOk2MeLCOAtN" style="margin: 0px; padding: 0px; box-sizing: border-box; display: block;">守护珊瑚</span>
+      <span class="thin" data-page-node-id="OHZL2iA90T2Rkfkc0MeLwk" style="margin: 0px; padding: 0px; box-sizing: border-box; display: block; font-weight: 200;">不用远方</span>
+    </h1>
+    <p class="say">珊瑚有很多威胁——污染、捕捞、疾病……其中之一就是由全球变暖引起的白化：海水持续过热，珊瑚会排掉体内的虫黄藻，颜色变白，也失去主要的食物来源。它未必立刻死去，但撑不了太久。这些压力里，有些我们改变不了，有些就藏在每天的购物、出行和一顿外卖里——下面几件小事，都从后者开始。</p>
+
+    <div class="poem">
+      绛树无花叶，非石亦非琼。<br>
+      世人何处得，<em>蓬莱石上生</em>。
+    </div>
+    <span class="attr">古人这样形容珊瑚</span>
+  </div>
+</header>
+
+<div class="rule" data-page-node-id="Ih4rjwBMhJAnjS1Ut68tPB" style="margin: 0px; padding: 0px; box-sizing: border-box; height: 1px; background: rgb(213, 224, 248);"></div>
+
+<!-- ================= 互动一：打卡 ================= -->
+<section id="checklist" data-page-node-id="N7vsscDhHDcv40s1fhOJGj" style="margin: 0px; padding: 84px 0px; box-sizing: border-box;">
+  <div class="wrap" data-page-node-id="nza8e9cR8KgabLaDfZUJsN" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px;">
+    <div class="label" data-page-node-id="9nXRRQby3xhvRq2PaYc2nc" style="margin: 0px 0px 26px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.74rem; letter-spacing: 0.24em;">互动 01 / 打卡</div>
+    <h2 class="h2" data-page-node-id="078iqJE3GjHxxcQkmIDIzg" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.35;">今天你能做到的 8 件小事</h2>
+    <p class="sub" data-page-node-id="HKrmzvr0ZQD50tGn0C8NFT" style="margin: 16px 0px 0px; padding: 0px; box-sizing: border-box; opacity: 0.7; max-width: 34em;">点一下，把已经做到的划上勾。想知道为什么有用，往下看第二区。</p>
+
+    <div class="items" id="items" style="margin: 44px 0px 0px; padding: 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; border-top: 1px solid rgb(213, 224, 248);" data-page-node-id="X95hAQYhjB6h8wTzbeFeN5"><div class="item" data-page-node-id="PSNSo28kaNvLkTSr7C7TzR"><span class="num" data-page-node-id="DOnT2tSbrYIcG4pAHju8vA">01</span><div class="body" data-page-node-id="q6gSTxIMgrZOYAcmvrVMM0"><h3 data-page-node-id="4UlFkRx8RYrAUDLy8pB0im">自带环保袋</h3><p data-page-node-id="DESGbj2mW26jUmZa3J4p8q">购物时自带并反复使用手边已有的袋子</p></div><span class="box" data-page-node-id="bp57dGHyo67nGgzTl06pXh"></span></div><div class="item" data-page-node-id="IzSg47JIWHTBVXy4PrqIpA"><span class="num" data-page-node-id="TY9AMSpsQVRbuq7GBL4dSI">02</span><div class="body" data-page-node-id="gPSNjt3JpHUs16QUGKR3Xd"><h3 data-page-node-id="zPseALiq1F1xot32IyJDIx">少用一次性塑料</h3><p data-page-node-id="4XC5pPlQaBb79tAaCLbV6P">自带水杯、吸管，少点一份塑料外卖</p></div><span class="box" data-page-node-id="ekokfsrpGi8OkmEZigBzzV"></span></div><div class="item" data-page-node-id="Z4fZmqTMwILrhHh3Q4XuC7"><span class="num" data-page-node-id="KhsJ7CdEzi6RNrIil01Qb5">03</span><div class="body" data-page-node-id="VgdlDoVIOPByszwrgKoUvl"><h3 data-page-node-id="6iUh2uYbRjje7LyoOUG66s">选海洋友好防晒</h3><p data-page-node-id="v6uhbZk6197zrFxrxlXUqb">下水或海边游玩前，看看成分再买</p></div><span class="box" data-page-node-id="IdWBbbMD4NgplUeNhF6l6Y"></span></div><div class="item" data-page-node-id="XUgdHX0yuVwO0Z9YUv3B8K"><span class="num" data-page-node-id="BpeylCmlu8KYX643ENPw8L">04</span><div class="body" data-page-node-id="Pg5WxsSwf1ij1UgSanACkb"><h3 data-page-node-id="vITIcEMyJuOmW2U3onkEal">随手关灯拔插头</h3><p data-page-node-id="KwfBV0QtEHksjTwVtvKPrr">省下的电，就是给海洋降的一度温</p></div><span class="box" data-page-node-id="Ms48pUB3dGeuvqK3iS6MYn"></span></div><div class="item" data-page-node-id="yq1v7OBdlEXdKYCYcli8T4"><span class="num" data-page-node-id="ZmDqCJhMhbAvCKWVlw5Cqm">05</span><div class="body" data-page-node-id="zIM9tByGAt5Q6z9JEJGDVi"><h3 data-page-node-id="S6RD9gv5VYlg4Go9dmWw32">能走路就不打车</h3><p data-page-node-id="wOE1PIrgnEf1z2Brsw4C8R">多走路、骑车、坐公交，都算数</p></div><span class="box" data-page-node-id="yXOpOAvJtwCKk4l43czEbE"></span></div><div class="item" data-page-node-id="6icBNecb4Vsu2TmSbnCXGp"><span class="num" data-page-node-id="K2UbdUYVCufPgZtuQ5FA8I">06</span><div class="body" data-page-node-id="UhMAnaCXnFpLT0CsqWMQDY"><h3 data-page-node-id="9Rvw0G2SHgxRqjaJiCiqiS">衣服够穿就好</h3><p data-page-node-id="moVAbgic3IckQDprefA9mr">少买一件，也是一种温柔</p></div><span class="box" data-page-node-id="fmwM4K4pydZH4CJzUfXFKY"></span></div><div class="item" data-page-node-id="BXU7PzaDdpjMZHCqQTc0SS"><span class="num" data-page-node-id="1zcE7Hj1r2viXHqC0XUMyc">07</span><div class="body" data-page-node-id="xRCRj0S9MHvczLjmx2hpwv"><h3 data-page-node-id="qDKz9pIk97SVP06jzPmOHh">垃圾认真分类</h3><p data-page-node-id="Qp8ZbFzLHE5VFZrhtSrHpu">让每一件垃圾去到该去的地方</p></div><span class="box" data-page-node-id="QTxKeWzk0iKirDBgmo4N1z"></span></div><div class="item" data-page-node-id="GOzfwRbQ8aKbprpnTcKw3Q"><span class="num" data-page-node-id="yscBZUpwp5cATIkKVus6VC">08</span><div class="body" data-page-node-id="HBmubYtGyfJDkyiESNe9Se"><h3 data-page-node-id="kefdTucPiNjvN7guZ6LBH0">把这件事告诉朋友</h3><p data-page-node-id="4I6pthwD56AiUGFqlAHNI0">分享给一个人，就多一个守护者</p></div><span class="box" data-page-node-id="vdIGtkcTL5q6tPINUcMGrt"></span></div>
+    </div>
+
+    <div class="progress" data-page-node-id="5WcwFZ0UWAp4ayFwJEBYxj" style="margin: 46px 0px 0px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 26px; flex-wrap: wrap;">
+      <div class="txt" data-page-node-id="UW087odl5Yokj8jT1GCy6J" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.88rem; letter-spacing: 0.06em; opacity: 0.7;">今日护珊瑚指数<b id="score" data-page-node-id="jqgxgI0CVXav02bvR3g0r4" style="margin: 0px 4px; padding: 0px; box-sizing: border-box; font-size: 1.7rem; font-weight: 700; opacity: 1;">0</b>/ 8</div>
+      <div class="track" data-page-node-id="QCmRxmPJVunFHKBJya40qZ" style="margin: 0px; padding: 0px; box-sizing: border-box; flex: 1 1 0%; min-width: 160px; height: 1px; background: rgb(213, 224, 248); position: relative;"><i id="fill" data-page-node-id="zlFnk5QkrspCTmXHXU8J6q" style="margin: 0px; padding: 0px; box-sizing: border-box; position: absolute; left: 0px; top: -1px; height: 3px; background: rgb(27, 92, 240); width: 0px; transition: width 0.5s;"></i></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule" data-page-node-id="Aeko3NCP93DYT5WNjGQImv" style="margin: 0px; padding: 0px; box-sizing: border-box; height: 1px; background: rgb(213, 224, 248);"></div>
+
+<!-- ================= 为什么 ================= -->
+<section id="why" data-page-node-id="yqRQ8PbXnwyhm2jpVgCcVt" style="margin: 0px; padding: 84px 0px; box-sizing: border-box;">
+  <div class="wrap" data-page-node-id="kKOgvSXx1faVGaPdN1HlMp" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px;">
+    <div class="label" data-page-node-id="ZBIYf2bHFDLDn6EEzGWbVL" style="margin: 0px 0px 26px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.74rem; letter-spacing: 0.24em;">背后的原因</div>
+    <h2 class="h2" data-page-node-id="hKaBb7S8fZ1N9ocNVbMfA9" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.35;">为什么这些小事有用</h2>
+    <p class="sub" data-page-node-id="V5NLjAH77TZgOUyMVR8w9A" style="margin: 16px 0px 0px; padding: 0px; box-sizing: border-box; opacity: 0.7; max-width: 34em;">不必记科学原理，看清"关系有多近"就够了。</p>
+
+    <div class="reasons" data-page-node-id="hlRziEGzXisGOlRukzTxre" style="margin: 52px 0px 0px; padding: 0px; box-sizing: border-box; border-top: 1px solid rgb(213, 224, 248);">
+      <div class="reason" data-page-node-id="5qlWkr5YeFUI1e5BUOBlYB" style="margin: 0px; padding: 30px 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 12px; border-bottom: 1px solid rgb(213, 224, 248);">
+        <div data-page-node-id="eapwaT75SRB8F0PAjJLGr7" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+          <h3 data-page-node-id="NnxHG2Va9AX6LryGKWPfHd" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1.02rem; font-weight: 600;">选海洋友好防晒</h3>
+          <span class="tag solid" data-page-node-id="ONhfDrN64tDXDMgKaSVKBt" style="margin: 10px 0px 0px; padding: 2px 9px; box-sizing: border-box; display: inline-block; font-size: 0.68rem; letter-spacing: 0.14em; border: 1px solid rgb(27, 92, 240); white-space: nowrap; background: rgb(27, 92, 240); color: rgb(255, 255, 255);">较直接</span>
+        </div>
+        <p data-page-node-id="Z0aPUPaKDg4DCFJJGto3p7" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1rem; opacity: 0.78;">某些防晒成分（如氧苯酮等）可能污染海水，并对珊瑚造成毒性压力；避开可疑成分、选择更安全的配方，可减少下水时对珊瑚的额外伤害。</p>
+      </div>
+      <div class="reason" data-page-node-id="thuSOhEVQ6joSmXc2RFEGO" style="margin: 0px; padding: 30px 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 12px; border-bottom: 1px solid rgb(213, 224, 248);">
+        <div data-page-node-id="g4zEMSSikDt1UxBYcwLEFY" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+          <h3 data-page-node-id="uSHS3enxO0ltoTDBuBG57e" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1.02rem; font-weight: 600;">随手关灯、少打车、少买衣服</h3>
+          <span class="tag solid" data-page-node-id="c5AzD0OkPDhmiUkJF5ltjE" style="margin: 10px 0px 0px; padding: 2px 9px; box-sizing: border-box; display: inline-block; font-size: 0.68rem; letter-spacing: 0.14em; border: 1px solid rgb(27, 92, 240); white-space: nowrap; background: rgb(27, 92, 240); color: rgb(255, 255, 255);">较直接但作用分散</span>
+        </div>
+        <p data-page-node-id="2fvGoj9HuBGMkvhm7VevQ9" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1rem; opacity: 0.78;">这些行为减少能源与商品生产运输的碳排放；碳排放会推高海洋温度并造成酸化，正是白化的大背景。</p>
+      </div>
+      <div class="reason" data-page-node-id="Dl4Nq9cHvBFqH1H6ESc4cj" style="margin: 0px; padding: 30px 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 12px; border-bottom: 1px solid rgb(213, 224, 248);">
+        <div data-page-node-id="iyMSnpHn7RN5nJa1lMyr2p" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+          <h3 data-page-node-id="AWQqaKj7uXydl7a1IKsmiL" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1.02rem; font-weight: 600;">自带环保袋、水杯、吸管，少点塑料外卖</h3>
+          <span class="tag" data-page-node-id="eVrjQuP7CvEiGCKPMOl26k" style="margin: 10px 0px 0px; padding: 2px 9px; box-sizing: border-box; display: inline-block; font-size: 0.68rem; letter-spacing: 0.14em; border: 1px solid rgb(27, 92, 240); white-space: nowrap;">间接</span>
+        </div>
+        <p data-page-node-id="BlSUQoLksdnTHl0gpERkVp" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1rem; opacity: 0.78;">主要是减少塑料进入海洋；海洋垃圾会伤害野生动物并破坏珊瑚礁等栖息地。研究发现，接触塑料的珊瑚患病可能性显著更高——减塑是帮珊瑚减少一类额外的健康威胁，但不能直接阻止海水升温。</p>
+      </div>
+      <div class="reason" data-page-node-id="DcGMNmH2x6cDGGQ5Spv7uJ" style="margin: 0px; padding: 30px 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 12px; border-bottom: 1px solid rgb(213, 224, 248);">
+        <div data-page-node-id="TYCtFSDB1jOmhRviuyy5Zr" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+          <h3 data-page-node-id="Hd0LHJ1IOJY1vM9iGuIGKH" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1.02rem; font-weight: 600;">垃圾分类</h3>
+          <span class="tag" data-page-node-id="HExSR8AYYN1k9E6LPuLCTo" style="margin: 10px 0px 0px; padding: 2px 9px; box-sizing: border-box; display: inline-block; font-size: 0.68rem; letter-spacing: 0.14em; border: 1px solid rgb(27, 92, 240); white-space: nowrap;">间接</span>
+        </div>
+        <p data-page-node-id="KJljEIwgAda2pnMRpuWWzy" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1rem; opacity: 0.78;">正确分类与回收能减少废弃物泄漏到环境，但本身不会立刻降低海水温度。</p>
+      </div>
+      <div class="reason" data-page-node-id="R1I9xbuAfwGivhYf1ugHQt" style="margin: 0px; padding: 30px 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 12px; border-bottom: 1px solid rgb(213, 224, 248);">
+        <div data-page-node-id="2X9ZtGkWuFJeUdoPUpEoxO" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+          <h3 data-page-node-id="zOniEJmX2EhYZ3XEc8hjf0" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1.02rem; font-weight: 600;">告诉朋友</h3>
+          <span class="tag dash" data-page-node-id="sbAtBcIRN5xmN3SuyVN41g" style="margin: 10px 0px 0px; padding: 2px 9px; box-sizing: border-box; display: inline-block; font-size: 0.68rem; letter-spacing: 0.14em; border: 1px dashed rgb(27, 92, 240); white-space: nowrap;">间接但可放大</span>
+        </div>
+        <p data-page-node-id="RrkuFADWXMXwvfP7eqTV1V" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 1rem; opacity: 0.78;">环保行为被更多人采纳后，累积的减排和减污效果才会更明显。</p>
+      </div>
+    </div>
+
+    <div class="note" data-page-node-id="8y69sow3nR1NXDniW5CbqS" style="margin: 40px 0px 0px; padding: 26px 28px; box-sizing: border-box; border: 1px solid rgb(27, 92, 240); font-size: 0.97rem; display: block;">
+      <div data-page-node-id="WASYvEzVnchlNcz4XiLWuk" style="margin: 0px; padding: 0px; box-sizing: border-box;"><b data-page-node-id="1zmt4pNgkyssAvC9UsyD9T" style="margin: 0px; padding: 0px; box-sizing: border-box; font-weight: 700;">怎么理解这些行动的作用？</b> 全球大规模珊瑚白化的首要驱动因素是海洋升温；减塑、分类等行动属于减轻局部污染压力的辅助措施——它们帮珊瑚减少"热应激之外的另一类威胁"，但不能替代应对气候变化，也不宜夸大为"能直接阻止白化"。</div>
+    </div>
+
+    <div class="ev" data-page-node-id="w7Zq8WYJx41HTOTEhdPgJq" style="margin: 90px 0px 0px; padding: 0px; box-sizing: border-box;">
+      <div class="label" data-page-node-id="RFZRKKV0YEmrXya6PzAMRm" style="margin: 0px 0px 26px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.74rem; letter-spacing: 0.24em;">研究证据</div>
+      <h2 class="h2" data-page-node-id="P7JYrDEUgyWpJwxjcWW0el" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.35;">权威研究怎么说</h2>
+      <p class="sub" data-page-node-id="NJQHxxItE8WoCl9D95cuwu" style="margin: 16px 0px 0px; padding: 0px; box-sizing: border-box; opacity: 0.7; max-width: 34em;">以下证据支持"减塑有助于珊瑚健康"，但不能换算成"白化率下降多少"。</p>
+
+      <div class="ev-list" data-page-node-id="bUQawlJD3KLsT0GTD9ACyr" style="margin: 36px 0px 0px; padding: 0px; box-sizing: border-box; border-top: 1px solid rgb(213, 224, 248);">
+        <div class="ev-item" data-page-node-id="pxbdHCI4AbvoERfwUcxurK" style="margin: 0px; padding: 28px 0px; box-sizing: border-box; display: block; border-bottom: 1px solid rgb(213, 224, 248);">
+          <div data-page-node-id="A1SSi7HphAnBUH2e027T2i" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+            <h4 data-page-node-id="dEEjw4UH4ICGADx2f27m6G" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; font-size: 1rem; font-weight: 700;">塑料接触与珊瑚疾病 <span data-page-node-id="NorXIPnzGgGlajAraZ4n1E" style="margin: 0px 0px 0px 10px; padding: 0px; box-sizing: border-box; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; opacity: 0.5;">SCIENCE / 2018</span></h4>
+            <p data-page-node-id="5zvHTA21ICFwZYAXivmJAf" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.96rem; opacity: 0.74;">调查亚太地区 159 处珊瑚礁、约 12.4 万个造礁珊瑚：接触塑料的珊瑚患病可能性约 89%，未接触的约 4%；塑料还可能成为病原微生物的载体。这是"塑料伤害珊瑚"最有力的野外证据。</p>
+            <div class="src" data-page-node-id="hge3ZCSSVeys6sLDv2laaA" style="margin: 10px 0px 0px; padding: 0px; box-sizing: border-box; font-size: 0.8rem; opacity: 0.48;">Lamb et al., 2018, Science · DOI: 10.1126/science.aar3320</div>
+          </div>
+        </div>
+        <div class="ev-item" data-page-node-id="6osV3LG0DHC5BzaIQK104X" style="margin: 0px; padding: 28px 0px; box-sizing: border-box; display: block; border-bottom: 1px solid rgb(213, 224, 248);">
+          <div data-page-node-id="4Ca2JksDgSF9qCNpAGLhfO" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+            <h4 data-page-node-id="TSmA1aKk1jZRaQgbfNxsTf" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; font-size: 1rem; font-weight: 700;">限塑令真的让垃圾变少 <span data-page-node-id="tGSX7ZAGITfWcB52SsxCjy" style="margin: 0px 0px 0px 10px; padding: 0px; box-sizing: border-box; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; opacity: 0.5;">SCIENCE / 2025</span></h4>
+            <p data-page-node-id="sTa5QYYeyjwHRr8w0IIZXf" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.96rem; opacity: 0.74;">分析美国 45,067 次岸边清洁数据：实施塑料袋禁令或收费的地区，岸边垃圾中塑料袋占比相对降低 25%–47%。说明"自带袋子"这类行为被政策放大后，环境中的塑料确实可测量地减少了。</p>
+            <div class="src" data-page-node-id="r0KBWr9Ex8Gsg2u72UggSN" style="margin: 10px 0px 0px; padding: 0px; box-sizing: border-box; font-size: 0.8rem; opacity: 0.48;">Papp &amp; Oremus, 2025, Science · DOI: 10.1126/science.adp9274</div>
+          </div>
+        </div>
+        <div class="ev-item" data-page-node-id="bW466HbJABsedXFCfoUD1k" style="margin: 0px; padding: 28px 0px; box-sizing: border-box; display: block; border-bottom: 1px solid rgb(213, 224, 248);">
+          <div data-page-node-id="CGefvObFKWKy6qFrRlfPp7" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+            <h4 data-page-node-id="GdYYmZonr6emmrQEkjXCIb" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; font-size: 1rem; font-weight: 700;">香港：从收费到"走餐具" <span data-page-node-id="Oi8owdkBSEQli6ErpwkFkq" style="margin: 0px 0px 0px 10px; padding: 0px; box-sizing: border-box; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; opacity: 0.5;">政府实践</span></h4>
+            <p data-page-node-id="Q9XV0qx4trAGxYVZdjG7ZB" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.96rem; opacity: 0.74;">2009 年起塑料购物袋收费，约 3,000 家登记零售店派袋量减少约九成；2024 年实施即弃塑胶管制后，超过八成外卖顾客选择"不要餐具"，估计每年减少逾 6,000 万套即弃餐具弃置。</p>
+            <div class="src" data-page-node-id="HPelPypi4OiQBesGq2A13T" style="margin: 10px 0px 0px; padding: 0px; box-sizing: border-box; font-size: 0.8rem; opacity: 0.48;">香港特区政府新闻公报（2009 / 2012 / 2025）· info.gov.hk</div>
+          </div>
+        </div>
+        <div class="ev-item" data-page-node-id="lC3sxvsg2nh9YKaH0bm9VZ" style="margin: 0px; padding: 28px 0px; box-sizing: border-box; display: block; border-bottom: 1px solid rgb(213, 224, 248);">
+          <div data-page-node-id="vm1SHS4bHR5fQDXjXaS3mM" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+            <h4 data-page-node-id="SVk87EyZ06rrQ5uVy5hacO" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; font-size: 1rem; font-weight: 700;">小心"可降解"的误区 <span data-page-node-id="CWkCilhvGIlnIyc65w0br2" style="margin: 0px 0px 0px 10px; padding: 0px; box-sizing: border-box; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; opacity: 0.5;">UNEP / 2015</span></h4>
+            <p data-page-node-id="J8eEeALp6NjEJBwFIS2LpG" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.96rem; opacity: 0.74;">联合国环境规划署指出：许多"可生物降解"塑料需要工业堆肥条件（某些材料需持续 50°C 以上）才能充分分解，海洋并不具备；进入海洋后可能分解得很慢，依然是海洋垃圾。真正的做法是：反复使用手边已有的袋子，无论什么材质都别让它入海。</p>
+            <div class="src" data-page-node-id="AHVk53IakJVCak37mvRQlt" style="margin: 10px 0px 0px; padding: 0px; box-sizing: border-box; font-size: 0.8rem; opacity: 0.48;">UNEP《Biodegradable Plastics and Marine Litter》, 2015</div>
+          </div>
+        </div>
+      </div>
+    </div><div data-page-node-id="wieInRqzukONvLFQ8rggzQ" class="case" style="margin:0;padding:0;box-sizing:border-box;margin-top:84px;border-top:1px solid #D5E0F8;padding-top:46px">
+      <div data-page-node-id="kw0lxPfpc2vvTq1hkxOnYu" class="eyebrow" style="margin:0;padding:0;box-sizing:border-box;font-size:.72rem;letter-spacing:.2em;opacity:.5">案例展开 / CASE</div>
+      <h3 data-page-node-id="51rcIWBruCmda4FpeXT6H1" style="margin:0;padding:0;box-sizing:border-box;font-size:clamp(1.3rem,2.6vw,1.62rem);font-weight:700;margin-top:14px;line-height:1.4">白色综合征：一个更具体的例子</h3>
+      <p data-page-node-id="maM2FGH9FIVozMnVK2vzhF" class="lead" style="margin:0;padding:0;box-sizing:border-box;margin-top:14px;font-size:1rem;opacity:.78;max-width:46em">与其笼统地说"塑胶伤害珊瑚"，不如看一个被反复引用的具体指标——白色综合征（white syndromes）。这类疾病意味着珊瑚活组织的丧失，而不只是颜色变淡。</p>
+
+      <div data-page-node-id="MC6A18WkPB6cBSVgTMKUyZ" class="ratio" style="margin:0;padding:0;box-sizing:border-box;display:grid;grid-template-columns:1fr;gap:1px;background:#D5E0F8;border:1px solid #D5E0F8;margin-top:38px">
+        <div data-page-node-id="e10dtkruTO3ECbsPqfkTHQ" style="margin:0;padding:24px 22px 22px;box-sizing:border-box;background:#fff">
+          <div data-page-node-id="QdFxgAhwjXyevZGny5MZp0" class="who" style="margin:0;padding:0;box-sizing:border-box;font-size:.72rem;letter-spacing:.16em;opacity:.55">未接触塑胶的珊瑚</div>
+          <div data-page-node-id="Dh77hHAKgGANom7VTahpwD" class="num" style="margin:0;padding:0;box-sizing:border-box;margin-top:18px;font-size:clamp(2.4rem,5.4vw,3.4rem);font-weight:200;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em">1.9%</div>
+          <div data-page-node-id="lSH7p4bK1aIHtYGZ1gsy3z" class="cap" style="margin:0;padding:0;box-sizing:border-box;margin-top:14px;font-size:.86rem;opacity:.6">出现白色综合征的比例</div>
+        </div>
+        <div data-page-node-id="Ykcf9ZCBp7cRV9YdOA6J65" style="margin:0;padding:24px 22px 22px;box-sizing:border-box;background:#EDF2FF">
+          <div data-page-node-id="usxM3X1wtWS4u7X1ce7MWA" class="who" style="margin:0;padding:0;box-sizing:border-box;font-size:.72rem;letter-spacing:.16em;opacity:.55">接触塑胶的珊瑚</div>
+          <div data-page-node-id="YjTxPaea3r3GdKYK8EOEZp" class="num" style="margin:0;padding:0;box-sizing:border-box;margin-top:18px;font-size:clamp(2.4rem,5.4vw,3.4rem);font-weight:400;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em">19.0%</div>
+          <div data-page-node-id="oqF1Oiry74Fg7le7y3WV5u" class="cap" style="margin:0;padding:0;box-sizing:border-box;margin-top:14px;font-size:.86rem;opacity:.6">出现白色综合征的比例，约为前者 10 倍</div>
+        </div>
+      </div>
+      <div data-page-node-id="ipjpEhsZep1M66OD0fveSG" class="ratio-foot" style="margin:0;padding:0;box-sizing:border-box;margin-top:14px;font-size:.82rem;opacity:.5">Lamb et al., 2018, Science · 亚太地区 159 处珊瑚礁野外调查</div>
+
+      <div data-page-node-id="eX2xx8CSWQiaTNIAvAvTnp" class="caution" style="margin:0;padding:2px 0 2px 22px;box-sizing:border-box;margin-top:30px;border-left:2px solid #1B5CF0;font-size:.95rem;opacity:.78;max-width:50em">需要注意：这两个数字来自调查样本的分组比较，并不是把塑胶放到同一批珊瑚上、观察患病率从 1.9% 升到 19.0% 的对照实验。</div>
+
+      <div data-page-node-id="48lNZKrOFXBHz1VXUXm0ff" class="case-list" style="margin:0;padding:0;box-sizing:border-box;margin-top:36px;border-top:1px solid #D5E0F8">
+        <div data-page-node-id="d50MGkSA9S9dXFUgLFyGvK" style="margin:0;padding:22px 0;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr;gap:14px;border-bottom:1px solid #D5E0F8">
+          <div data-page-node-id="dfw5ooxclZ66fAVeCbKp4r" class="n" style="margin:0;padding:0;box-sizing:border-box;font-size:.78rem;letter-spacing:.1em;opacity:.45;padding-top:5px">01</div>
+          <div data-page-node-id="Xf6gbbKCxQPvOczGz3SJYH" style="margin:0;padding:0;box-sizing:border-box">
+            <h4 data-page-node-id="Jn92VFeFxmBWq5LpCLLCgm" style="margin:0;padding:0;box-sizing:border-box;font-size:1rem;font-weight:700;margin-bottom:6px">塑胶可能是微生物的"运输工具"</h4>
+            <p data-page-node-id="8d4SJn0EWIwiMDx5ZFCzdK" style="margin:0;padding:0;box-sizing:border-box;font-size:.96rem;opacity:.74">论文引用的既有研究发现，海洋中的聚丙烯塑胶碎片上可附着大量弧菌属（Vibrio）细菌，其中一些机会性病原菌与珊瑚白色综合征有关。</p>
+          </div>
+        </div>
+        <div data-page-node-id="KcfGDhwbIGCFubpteBFPhO" style="margin:0;padding:22px 0;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr;gap:14px;border-bottom:1px solid #D5E0F8">
+          <div data-page-node-id="nmnEnBzjjhtohr8F8wIEtR" class="n" style="margin:0;padding:0;box-sizing:border-box;font-size:.78rem;letter-spacing:.1em;opacity:.45;padding-top:5px">02</div>
+          <div data-page-node-id="2kdgrjhQZFGsE8YpSAZRvT" style="margin:0;padding:0;box-sizing:border-box">
+            <h4 data-page-node-id="GeUlriAcNpB7CQBpMFkfsv" style="margin:0;padding:0;box-sizing:border-box;font-size:1rem;font-weight:700;margin-bottom:6px">塑胶覆盖珊瑚，也会制造压力</h4>
+            <p data-page-node-id="0t0DbXoOB6qDBXS7gn3qwB" style="margin:0;padding:0;box-sizing:border-box;font-size:.96rem;opacity:.74">论文讨论了遮光、局部缺氧等情形：塑胶压在珊瑚上，这些压力可能给病原体入侵创造条件。</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-page-node-id="TU7qm2gbr9qF1rITw8cZ2y" class="caution" style="margin:0;padding:2px 0 2px 22px;box-sizing:border-box;margin-top:30px;border-left:2px solid #1B5CF0;font-size:.95rem;opacity:.78;max-width:50em">但还不能描述成"研究人员已经追踪证明，某个袋子上的某株细菌传给了某一株珊瑚"。这项研究证明得最清楚的是野外的强关联；具体传播机制则结合了其他研究和机制解释。</div>
+
+      <p data-page-node-id="u6JxlSbOuPxhEWdYcWMZTO" class="plain" style="margin:0;padding:0;box-sizing:border-box;margin-top:34px;font-size:1rem;opacity:.78;max-width:48em">真实场景里也确实见得到：康奈尔大学介绍该研究的报道中，有一张卡在珊瑚之间的废弃塑胶米袋照片，同一组报道也拍到调查地点附近海滩上堆积的塑胶垃圾。不过报道并未说明那只米袋下面的珊瑚被确诊为哪种疾病——它可以作为"日常塑胶垃圾确实会碰到珊瑚"的实例，而不是"这只袋子导致该珊瑚患病"的确诊个案。</p>
+    </div>
+    
+    
+  </div>
+  
+
+</section>
+
+<div class="rule" data-page-node-id="thvi9yxjAhGX0IkuPMiUuD" style="margin: 0px; padding: 0px; box-sizing: border-box; height: 1px; background: rgb(213, 224, 248);"></div>
+
+<!-- ================= 互动二：测验 ================= -->
+<section id="quiz" data-page-node-id="AOHW9VxqBMXf2FyIseuSmg" style="margin: 0px; padding: 84px 0px; box-sizing: border-box;">
+  <div class="wrap" data-page-node-id="wupMK2FCdeIakEVT9zhIEH" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px;">
+    <div class="label" data-page-node-id="DtFmUZoXgE5Ybjydf6KAsY" style="margin: 0px 0px 26px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.74rem; letter-spacing: 0.24em;">互动 02 / 测一测</div>
+    <h2 class="h2" data-page-node-id="BVPEh3ECJSiYI0J022NWLU" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.35;">哪种选择更护珊瑚</h2>
+
+    <div class="quiz" data-page-node-id="tSgkjVML3HjlZp6Y8gPLOG" style="margin: 56px 0px 0px; padding: 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 38px;">
+      <div class="quiz-side" data-page-node-id="nL5nXjNE6IMluxfU5PGu9e" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+        <div class="count" data-page-node-id="eTsEP1T5y9NqiNqfueMulH" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 3.2rem; font-weight: 200; line-height: 1; font-variant-numeric: tabular-nums;"><span id="qNow" data-page-node-id="gdRaMWWObt8jdQPXPZhFyi" style="margin: 0px; padding: 0px; box-sizing: border-box;">01</span><small data-page-node-id="vC08zCEVvx6NH1iWCA6BY9" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: 0.95rem; opacity: 0.45; font-weight: 400;"> / 06</small></div>
+        <div class="quiz-dots" id="dots" data-page-node-id="FeMfnitd9aT39sd2UCTPfz" style="margin: 28px 0px 0px; padding: 0px; box-sizing: border-box; display: flex; gap: 8px; flex-wrap: wrap;"><i class="on" data-page-node-id="NIOWeG6C8Yp3rIfxZAuDzs"></i><i data-page-node-id="KurpBUrzc0UmQc7qafbDCp"></i><i data-page-node-id="SO0BblPgWMa8cp3NoOa5bg"></i><i data-page-node-id="ccdTglaNFxp0cG6yScX3zW"></i><i data-page-node-id="2T25nh4pYYcrBQGcAdhVd8"></i><i data-page-node-id="yDDvtA2NWIYEehnNCpDOn2"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="quiz-main" data-page-node-id="kOvsszrpMrH4Ch8NQ2m5vX" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+        <h3 id="qText" data-page-node-id="GsmaZjBImTvMBECr6RZ4JK" style="margin: 0px 0px 30px; padding: 0px; box-sizing: border-box; font-size: clamp(1.15rem, 2.2vw, 1.46rem); font-weight: 600; line-height: 1.55;">点外卖时，下面哪种做法其实更护珊瑚？</h3>
+        <div class="opts" id="opts" data-page-node-id="7VfbJp7YwTmT33YlmqltwP" style="margin: 0px; padding: 0px; box-sizing: border-box; border-top: 1px solid rgb(213, 224, 248);"><button class="opt"><span class="key">A</span><span>备注"无需餐具"，用自己的筷子水杯</span></button><button class="opt"><span class="key">B</span><span>选了"环保纸盒"包装就行，餐具照常要</span></button><button class="opt"><span class="key">C</span><span>多点几单凑满减，反正都要配送一趟</span></button></div>
+        <div class="fb" id="fb" data-page-node-id="9q2ALqugGmACOe8yisUufU" style="margin: 26px 0px 0px; padding: 0px; box-sizing: border-box; font-size: 0.97rem; line-height: 1.75; min-height: 58px; opacity: 0.82;"></div>
+        <button class="next" id="next" onclick="nextQ()" data-page-node-id="P0AaWcV1Gh3Ac79R3FY2k1" style="display: none; margin: 6px 0px 0px; padding: 14px 38px; box-sizing: border-box; background: rgb(27, 92, 240); color: rgb(255, 255, 255); border: none; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.92rem; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; letter-spacing: 0.14em; cursor: pointer; transition: background 0.2s;">下一题</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule" data-page-node-id="hi1vUNhMzoqJd153zPke8E" style="margin: 0px; padding: 0px; box-sizing: border-box; height: 1px; background: rgb(213, 224, 248);"></div>
+
+<!-- ================= 互动三：留言 ================= -->
+<section id="board" data-page-node-id="5wtI5SUTqFAIPAUCgCWePp" style="margin: 0px; padding: 84px 0px; box-sizing: border-box;">
+  <div class="wrap" data-page-node-id="NjpSGDbhlkeqTNvp5llOqI" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px;">
+    <div class="label" data-page-node-id="EcLv4J5ZjUUuxqqtMcWbFJ" style="margin: 0px 0px 26px; padding: 0px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; font-size: 0.74rem; letter-spacing: 0.24em;">互动 03 / 留言</div>
+    <h2 class="h2" data-page-node-id="xbJVLmAGL9lluGEx73thCs" style="margin: 0px; padding: 0px; box-sizing: border-box; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.35;">说一句给珊瑚</h2>
+
+    <div class="board-form" data-page-node-id="mDFVZFj3Q2vSCGjmK63DZI" style="margin: 56px 0px 0px; padding: 0px; box-sizing: border-box; display: grid; grid-template-columns: 1fr; gap: 38px;">
+      <div data-page-node-id="vCMPcbsQupfzWzcVOV9pCX" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+        <div class="field" data-page-node-id="0p0Aof20xENk0oWssddWor" style="margin: 0px 0px 24px; padding: 0px; box-sizing: border-box;">
+          <label data-page-node-id="ygSNFjAW57kkLVya4Y7USz" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; display: block; font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.5;">你的名字</label>
+          <input type="text" id="name" maxlength="12" placeholder="匿名的小鱼" data-page-node-id="pcmEWI0kXzbH3HtFmSf7aV" style="margin: 0px; padding: 8px 0px 12px; box-sizing: border-box; width: 100%; background: transparent; border-top: none; border-right: none; border-bottom: 1px solid rgb(213, 224, 248); border-left: none; border-image: initial; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 1rem; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; color: rgb(27, 92, 240); transition: border-color 0.2s; resize: vertical;">
+        </div>
+        <button class="send" onclick="send()" data-page-node-id="7QKrYAQOvdA4TnC5hiOa2m" style="margin: 0px; padding: 13px 40px; box-sizing: border-box; background: transparent; border: 1px solid rgb(27, 92, 240); color: rgb(27, 92, 240); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.9rem; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; letter-spacing: 0.16em; cursor: pointer; transition: 0.2s;">留下</button>
+      </div>
+      <div data-page-node-id="401GframSmnAi7kpqFkOYI" style="margin: 0px; padding: 0px; box-sizing: border-box;">
+        <div class="field" data-page-node-id="vGMAZKfKXCNHWwxSN90XS7" style="margin: 0px 0px 24px; padding: 0px; box-sizing: border-box;">
+          <label data-page-node-id="lAoSaczv4gZ6amr5ZvJYZW" style="margin: 0px 0px 8px; padding: 0px; box-sizing: border-box; display: block; font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.5;">留言</label><textarea data-page-node-id="GXTnXNz7OdJPQ2lb7JjJpJ" id="text" rows="3" maxlength="200" placeholder="最多 200 字" style="margin: 0px; padding: 8px 0px 12px; box-sizing: border-box; width: 100%; background: transparent; border-top: none; border-right: none; border-left: none; border-image: initial; border-bottom: 1px solid rgb(213, 224, 248); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 1rem; color: rgb(27, 92, 240); transition: border-color 0.2s; resize: vertical;"></textarea>
+                  </div>
+        <div class="msgs" id="msgs" data-page-node-id="3UZJIyNzmHKqZClwZNraaM" style="margin: 0px; padding: 0px; box-sizing: border-box; border-top: 1px solid rgb(213, 224, 248);"><div class="empty">还没有留言。第一个说话的人，通常被记住最久。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule" data-page-node-id="4DFzDAUCa3qZbn3QlWZT1t"></div>
+
+<!-- ================= 互动四：知识卡片（仅白化相关） ================= -->
+<section id="cards">
+  <div class="wrap">
+    <div class="label">互动 04 / 白化知识卡片</div>
+    <h2 class="h2">白化之后，其实还有几步</h2>
+    <p class="sub">点一下翻面。三张卡片，讲白化之后还能不能恢复、会连带发生什么。</p>
+
+    <div class="cards">
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">01</span>
+            <h4>恢复的窗口，可能只有几周</h4>
+            <p class="kteaser">水温回落，虫黄藻还回得来</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">01 / 背面</span>
+            <p>白化不等于死亡。若水温回落、压力解除，虫黄藻有机会重新回到珊瑚体内，颜色也会慢慢回来。但高温持续数周甚至更久，失去能量来源的珊瑚就会因“饥饿”而衰弱、死亡。</p>
+            <span class="ksrc">来源 · NOAA《What is coral bleaching?》</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">02</span>
+            <h4>高温之后，病也跟着来</h4>
+            <p class="kteaser">三十多种病，能确认病因的只有六种</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">02 / 背面</span>
+            <p>黑带病、白斑病、白色瘟疫、黄带病……过去三十多年，珊瑚疾病重创全球珊瑚礁。高温、营养盐、有机污染物超标都会削弱珊瑚的抵抗力，让病原更容易得手。（疾病统计为 2009 年综述口径）</p>
+            <span class="ksrc">来源 · 《生态学报》珊瑚疾病综述（2009）</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">03</span>
+            <h4>白化之后，失去的不只是颜色</h4>
+            <p class="kteaser">护岸、渔场、生计，都长在这层骨骼上</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">03 / 背面</span>
+            <p>白化致死后，礁体会慢慢被侵蚀、塌陷。失去的不只是景观——海岸少了屏障，鱼群少了育幼场，靠海吃饭的人也就少了一条路。</p>
+            <span class="ksrc">来源 · 国立自然科学博物馆</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 结语 / 蓝色补充区 ================= -->
+<section class="finale">
+  <div class="wrap inner">
+    <div class="f-label">补充 / 与白化无关，只是关于珊瑚</div>
+    <h2 class="fh2">关于珊瑚本身，还有这些</h2>
+    <p class="fsub">下面这些和升温、白化没有直接关系——它们是珊瑚这种生物的常识：它的天敌、它的住客、它怎么活着。</p>
+
+    <div class="cards">
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">01</span>
+            <h4>会“变白”，但不是白化</h4>
+            <p class="kteaser">被吃空的白骨，也是一种白</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">01 / 背面</span>
+            <p>棘冠海星把珊瑚的肉质组织吃掉，只留下白色骨骼——看上去和白化很像，成因却相反：一个是被吃空，一个是把共生藻赶走。</p>
+            <span class="ksrc">来源 · 国立自然科学博物馆 / 大堡礁海洋公园管理局</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">02</span>
+            <h4>岸上的雨，也能伤到珊瑚</h4>
+            <p class="kteaser">营养盐顺流而下，喂饱了珊瑚的天敌</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">02 / 背面</span>
+            <p>暴雨把陆地上的营养盐冲进海里，浮游生物随之大量繁殖，棘冠海星幼虫因此大量存活；约三年后它们长大，开始啃食珊瑚。这只是可能原因之一——洋流、食物量、天敌减少也被官方列为候选。</p>
+            <span class="ksrc">来源 · 国立自然科学博物馆 / 大堡礁海洋公园管理局</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">03</span>
+            <h4>为什么“补救”这么难</h4>
+            <p class="kteaser">切成八块，就成了八只</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">03 / 背面</span>
+            <p>早期潜水员把海星切碎丢回海里，没想到它再生能力极强，每一块都能长成一只。现在改用胆汁盐（或白醋）单次注射、或人工捞除——能压住数量，但费人费力，治标不治本。</p>
+            <span class="ksrc">来源 · 大堡礁海洋公园管理局 / Rivera-Posada et al., 2014</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">04</span>
+            <h4>真正的办法，在岸上</h4>
+            <p class="kteaser">少一点泥沙入海，少一次贝壳买卖</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">04 / 背面</span>
+            <p>一是避免海岸滥垦，别让过多营养盐随雨水入海；二是保护它的天敌（大法螺只是其中之一），严禁采捕。很多人收藏贝壳，正是大法螺被过度捕捉的原因——不买，本身就是一次保护。</p>
+            <span class="ksrc">来源 · 国立自然科学博物馆 / 大堡礁海洋公园管理局</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">05</span>
+            <h4>谁住在珊瑚礁里</h4>
+            <p class="kteaser">四千多种鱼，只是开始</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">05 / 背面</span>
+            <p>鹦嘴鱼、蝴蝶鱼、雀鲷住在礁洞里，石斑鱼、笛鲷、隆头鱼在礁间穿梭。至今在珊瑚礁记录到 4000 多种鱼，还有海绵、蠕虫、甲壳类、海龟、海蛇，织成一张复杂的食物网。</p>
+            <span class="ksrc">来源 · 维基百科「珊瑚礁」</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">06</span>
+            <h4>珊瑚虫靠什么活</h4>
+            <p class="kteaser">触手中央有口，也靠虫黄藻加餐</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">06 / 背面</span>
+            <p>珊瑚虫是圆筒状的小动物，触手中央有一张口。它捕食水里细小的浮游生物，也直接从海水吸收无机氮和磷；与它共生的虫黄藻还会通过光合作用给它“加餐”。</p>
+            <span class="ksrc">来源 · 百度百科「珊瑚虫」/ 维基百科</span>
+          </div>
+        </div>
+      </div>
+      <div class="kcard wide" tabindex="0" role="button" aria-expanded="false" onclick="flipCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();flipCard(this)}">
+        <div class="kcard-inner">
+          <div class="kface kfront">
+            <span class="knum">07</span>
+            <h4>礁，是长出来的</h4>
+            <p class="kteaser">一层骨骼，叠一层新的生命</p>
+            <span class="khint">点一下翻开</span>
+          </div>
+          <div class="kface kback">
+            <span class="knum">07 / 背面</span>
+            <p>石珊瑚的骨骼以碳酸钙为主，新的珊瑚虫长在旧骨骼上，海浪与鱼群把断枝填进缝隙。石灰藻等钙化生物也参与建造，藻类造的礁被称为“藻礁”。</p>
+            <span class="ksrc">来源 · 维基百科「珊瑚礁」</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nums">
+      <div class="n">0.25%<span>覆盖的海洋面积</span></div>
+      <div class="n">1/4<span>养育的海洋生物</span></div>
+    </div>
+    <p class="closing">珊瑚礁是海洋生态系统的关键基石，覆盖不到 0.25% 的海洋面积，却养育约 1/4 的海洋生物，被誉为“海洋中的热带雨林”。</p>
+    <div class="quote">海有多斑斓，取决于珊瑚有多健康</div>
+  </div>
+</section>
+
+<footer data-page-node-id="DQyV39Tu3CGZcN62qeV55f" style="margin: 0px; padding: 46px 0px 60px; box-sizing: border-box;">
+  <div class="wrap" data-page-node-id="RAHkouv9JA3zhKODjB1FJf" style="margin: 0px auto; padding: 0px 22px; box-sizing: border-box; max-width: 1080px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 0.76rem; letter-spacing: 0.16em; opacity: 0.48;">
+    <span data-page-node-id="BNmDJ7DigwoM8tOigQK8Zz" style="margin: 0px; padding: 0px; box-sizing: border-box;">守护珊瑚 · 从今天的小事开始</span>
+        
+  </div>
+</footer>
+
+<script>
+/* ================= 互动四：知识卡片翻面 ================= */
+function flipCard(el) {
+  el.classList.toggle('flip');
+  el.setAttribute('aria-expanded', el.classList.contains('flip') ? 'true' : 'false');
+}
+
+/* ================= 互动一：打卡 ================= */
+const itemsBox = document.getElementById('items');
+const itemEls = itemsBox ? itemsBox.querySelectorAll('.item') : [];
+
+itemEls.forEach(function (el) {
+  el.addEventListener('click', function () {
+    el.classList.toggle('done');
+    updateScore();
+  });
+});
+
+function updateScore() {
+  const done = itemsBox.querySelectorAll('.item.done').length;
+  document.getElementById('score').textContent = done;
+  document.getElementById('fill').style.width = (done / itemEls.length * 100) + '%';
+}
+
+/* ================= 互动二：测验 ================= */
+const quiz = [
+  {
+    q: '点外卖时，下面哪种做法其实更护珊瑚？',
+    opts: ['备注"无需餐具"，用自己的筷子水杯', '选了"环保纸盒"包装就行，餐具照常要', '多点几单凑满减，反正都要配送一趟'],
+    right: 0,
+    rightTip: '包装只是一半，餐具才是外卖塑料的大头，"无需餐具"是最容易被忽略的一步。',
+    wrongTip: '纸盒环保不等于整单环保，外卖里的塑料餐具、独立小包装袋才是隐藏大户。'
+  },
+  {
+    q: '家里的旧衣服，哪种处理方式更护珊瑚？',
+    opts: ['塞进衣柜最底层，不扔掉就不算污染', '化纤衣服扔掉会污染，干脆烧掉最干净', '洗净后捐赠、转卖或投进旧衣回收箱'],
+    right: 2,
+    rightTip: '让衣服多"活"一轮，就少生产一件新的——纺织业是塑料纤维的大户之一。',
+    wrongTip: '衣服被"闲置"和被"烧掉"都不算消失，让它们流转到下一个需要的人手里才是正解。'
+  },
+  {
+    q: '在海边礁石区打卡拍照，更合适的做法是——',
+    opts: ['踩上露出水面的珊瑚礁，取景更震撼', '站在沙滩或步道上，用变焦远远拍', '翻动礁石找小螃蟹、海星当拍摄道具'],
+    right: 1,
+    rightTip: '珊瑚长得极慢，一脚下去可能折断它几十年的生长，远远拍反而更美。',
+    wrongTip: '礁石区看着是石头，很多其实是活着的珊瑚和生物的家，站在沙滩或步道上最安全。'
+  },
+  {
+    q: '挑洗漱用品时，下面哪个选择更护珊瑚？',
+    opts: ['含"柔珠"的磨砂洗面奶，洗得更干净', '同样功效，选不含塑料微粒的版本', '沐浴露肯定比香皂高级，闭眼选它'],
+    right: 1,
+    rightTip: '"柔珠"其实是肉眼难辨的塑料小球，会顺着下水道一路漂向大海。',
+    wrongTip: '看一眼成分表：写着 PE、PP "柔珠 / 微珠"的就是塑料粒，挑无微粒的同款功效就好。'
+  },
+  {
+    q: '纪念品店里看到漂亮的珊瑚、贝壳摆件，更合适的是——',
+    opts: ['小摆件而已，买一个带回家没关系', '多买几个送朋友，帮当地生意更好', '不买，改选明信片、冰箱贴当纪念'],
+    right: 2,
+    rightTip: '不买就没有捕捞，明信片上的珊瑚能美很久，海里的珊瑚能活得更久。',
+    wrongTip: '有买卖就有打捞，哪怕是"小摆件"，你的选择就是市场的投票。'
+  },
+  {
+    q: '夏天囤饮料，下面哪种买法更环保？',
+    opts: ['大瓶装买回家分装，少囤独立小瓶', '小瓶装更便携，一次多买几组囤着', '哪种打折买哪种，省钱就是环保'],
+    right: 0,
+    rightTip: '同样是 3 升饮料，大瓶装的塑料用量比十几瓶小的少一大截，还更省钱。',
+    wrongTip: '小瓶装看着方便，但同样的量要多用好几倍的瓶盖和包装，大瓶分装才是隐藏的正确答案。'
+  }
+];
+
+let qi = 0, locked = false;
+const dots = document.getElementById('dots');
+dots.innerHTML = '';
+quiz.forEach(function () { dots.appendChild(document.createElement('i')); });
+
+function render() {
+  locked = false;
+  const q = quiz[qi];
+  document.getElementById('qNow').textContent = String(qi + 1).padStart(2, '0');
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('fb').textContent = '';
+  document.getElementById('next').style.display = 'none';
+  Array.prototype.forEach.call(dots.children, function (d, i) {
+    d.classList.toggle('on', i === qi);
+  });
+
+  const box = document.getElementById('opts');
+  box.innerHTML = '';
+  q.opts.forEach(function (t, i) {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = '<span class="key">' + 'ABC'[i] + '</span><span>' + t + '</span>';
+    b.addEventListener('click', function () { pick(i, b); });
+    box.appendChild(b);
+  });
+}
+
+function pick(i, btn) {
+  if (locked) return;
+  locked = true;
+  const q = quiz[qi];
+  const all = document.querySelectorAll('.opt');
+  const fb = document.getElementById('fb');
+  if (i === q.right) {
+    btn.classList.add('right');
+    fb.innerHTML = '<b>对。</b>' + q.rightTip;
+  } else {
+    btn.classList.add('wrong');
+    all[q.right].classList.add('right');
+    fb.innerHTML = '<b>不对。</b>' + q.wrongTip;
+  }
+  const n = document.getElementById('next');
+  n.textContent = qi === quiz.length - 1 ? '再来一轮' : '下一题';
+  n.style.display = 'inline-block';
+}
+
+function nextQ() {
+  qi = (qi + 1) % quiz.length;
+  render();
+}
+render();
+
+/* ================= 互动三：留言 ================= */
+const KEY = 'coralBoardV2';
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+function save(list) { localStorage.setItem(KEY, JSON.stringify(list)); }
+
+function timeLabel(ts) {
+  const d = new Date(ts), p = function (n) { return String(n).padStart(2, '0'); };
+  return d.getFullYear() + '.' + p(d.getMonth() + 1) + '.' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+}
+
+function renderMsgs() {
+  const list = load();
+  const box = document.getElementById('msgs');
+  box.innerHTML = '';
+  if (!list.length) {
+    box.innerHTML = '<div class="empty">还没有留言。第一个说话的人，通常被记住最久。</div>';
+    return;
+  }
+  list.forEach(function (m, idx) {
+    const el = document.createElement('div');
+    el.className = 'msg';
+    el.innerHTML =
+      '<div><div class="who"></div><div class="when">' + timeLabel(m.time) + '</div></div>' +
+      '<div class="what"></div>' +
+      '<button class="del">删除</button>';
+    el.querySelector('.who').textContent = m.name;
+    el.querySelector('.what').textContent = m.text;
+    el.querySelector('.del').addEventListener('click', function () {
+      const l = load();
+      l.splice(idx, 1);
+      save(l);
+      renderMsgs();
+    });
+    box.appendChild(el);
+  });
+}
+
+function send() {
+  const nameEl = document.getElementById('name');
+  const textEl = document.getElementById('text');
+  const text = textEl.value.trim();
+  if (!text) {
+    textEl.placeholder = '先写点什么吧';
+    textEl.focus();
+    return;
+  }
+  const list = load();
+  list.unshift({ name: nameEl.value.trim() || '匿名的小鱼', text: text, time: Date.now() });
+  save(list);
+  nameEl.value = '';
+  textEl.value = '';
+  textEl.placeholder = '最多 200 字';
+  renderMsgs();
+}
+
+renderMsgs();
+</script>
+
+
+
+
+
+</body></html>
